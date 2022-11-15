@@ -1,0 +1,8 @@
+{
+  "short_name": "Amazon Store",
+  "name": "Amazon Store | Online Shopping site",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

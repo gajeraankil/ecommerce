@@ -9,13 +9,13 @@ import styled from "styled-components";
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart.cart);
-  const totalPrice = useSelector((state) => state.cart.total_price);
-  const shippingFee = useSelector((state) => state.cart.shipping_fee);
+  const { cart, total_price, shipping_fee } = useSelector(
+    (state) => state.cart
+  );
 
   useEffect(() => {
     dispatch(cartTotalPrice());
-  }, [dispatch]);
+  }, [dispatch, cart]);
 
   if (cart.length === 0) {
     return (
@@ -60,20 +60,20 @@ const Cart = () => {
             <div>
               <p>subtotal:</p>
               <p>
-                <FormatPrice price={totalPrice} />
+                <FormatPrice price={total_price} />
               </p>
             </div>
             <div>
               <p>shipping fee:</p>
               <p>
-                <FormatPrice price={shippingFee} />
+                <FormatPrice price={shipping_fee} />
               </p>
             </div>
             <hr />
             <div>
               <p>order total:</p>
               <p>
-                <FormatPrice price={shippingFee + totalPrice} />
+                <FormatPrice price={shipping_fee + total_price} />
               </p>
             </div>
           </div>

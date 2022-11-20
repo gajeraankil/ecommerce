@@ -8,13 +8,13 @@ import styled from "styled-components";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const totalItem = useSelector((state) => state.cart.total_item);
+  const { total_item, cart } = useSelector((state) => state.cart);
 
   const [menuIcon, setMenuIcon] = useState();
 
   useEffect(() => {
     dispatch(cartTotalItem());
-  }, [dispatch, totalItem]);
+  }, [dispatch, cart]);
 
   return (
     <Nav>
@@ -59,7 +59,7 @@ const Navbar = () => {
           <li>
             <NavLink to="/cart" className="navbar-link cart-trolley--link">
               <FiShoppingCart className="cart-trolley" />
-              <span className="cart-total--item"> {totalItem} </span>
+              <span className="cart-total--item"> {total_item} </span>
             </NavLink>
           </li>
         </ul>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { postData } from "../redux/actions/contactAction";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
@@ -6,13 +6,16 @@ import styled from "styled-components";
 const Contact = () => {
   const dispatch = useDispatch();
   const resetUser = useSelector((state) => state.contact);
-  console.log(resetUser);
 
   const [user, setUser] = useState({
     name: "",
     email: "",
     message: "",
   });
+
+  useEffect(() => {
+    setUser(resetUser.user);
+  }, [resetUser]);
 
   let name, value;
   const getUserData = (event) => {

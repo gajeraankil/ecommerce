@@ -1,13 +1,12 @@
 import axios from "axios";
-import { API, firebasePostData } from "../shared/baseUrl";
 
 const instanceProduct = axios.create({
-  baseURL: API,
+  baseURL: process.env.REACT_APP_API,
   timeout: 2000,
 });
 
 const instanceContact = axios.create({
-  baseURL: firebasePostData,
+  baseURL: process.env.REACT_APP_FIREBASE_CONTACT_DATA,
   timeout: 2000,
 });
 
